@@ -63,16 +63,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const cards = document.querySelectorAll('.atividade-item');
 
     cards.forEach(card => {
-        // Função para girar
         const toggleFlip = () => card.classList.toggle('flipped');
 
-        // Gira ao clicar
+        // Se for um dispositivo touch, o clique funciona normalmente.
+        // No desktop, o hover do CSS já resolve, mas o clique ainda pode servir para "fixar" o card.
         card.addEventListener('click', toggleFlip);
 
-        // Gira ao apertar Enter ou Espaço (Acessibilidade)
+        // Acessibilidade: Enter e Espaço continuam funcionando
         card.addEventListener('keydown', (e) => {
             if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault(); // Evita o scroll da página ao apertar espaço
+                e.preventDefault();
                 toggleFlip();
             }
         });
