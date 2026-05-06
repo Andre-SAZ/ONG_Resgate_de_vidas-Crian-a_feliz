@@ -17,6 +17,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sorts+Mill+Goudy:ital@0;1&display=swap" rel="stylesheet">
+    
+    <!-- CSS do AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
     <title>Resgate de vidas - Criança feliz</title>
 </head>
 
@@ -60,22 +64,23 @@
     <div id="conteudo-principal" tabindex="-1" style="outline: none;"></div>
 
     <div class="slider" aria-label="Destaques da ONG">
-    <div class="slides-wrapper">
-        <div class="slide"><img src="img/1.png" alt="Crianças brincando"></div>
-        <div class="slide"><img src="img/2.png" alt="Distribuição de alimentos"></div>
-        <div class="slide"><img src="img/3.png" alt="Aulas de música"></div>
-        <div class="slide"><img src="img/4.png" alt="Voluntários reunidos"></div>
+        <div class="slides-wrapper">
+            <div class="slide"><img src="img/1.png" alt="Crianças brincando"></div>
+            <div class="slide"><img src="img/2.png" alt="Distribuição de alimentos"></div>
+            <div class="slide"><img src="img/3.png" alt="Aulas de música"></div>
+            <div class="slide"><img src="img/4.png" alt="Voluntários reunidos"></div>
+        </div>
+
+        <div class="slider-nav">
+            <button class="nav-dot active" aria-label="Slide 1"></button>
+            <button class="nav-dot" aria-label="Slide 2"></button>
+            <button class="nav-dot" aria-label="Slide 3"></button>
+            <button class="nav-dot" aria-label="Slide 4"></button>
+        </div>
     </div>
 
-    <div class="slider-nav">
-        <button class="nav-dot active" aria-label="Slide 1"></button>
-        <button class="nav-dot" aria-label="Slide 2"></button>
-        <button class="nav-dot" aria-label="Slide 3"></button>
-        <button class="nav-dot" aria-label="Slide 4"></button>
-    </div>
-</div>
-
-    <section id="sobre-nos" class="sobre-nos-container">
+    <!-- Adicionado data-aos="fade-up" para animar a entrada -->
+    <section id="sobre-nos" class="sobre-nos-container" data-aos="fade-up" data-aos-duration="1000">
         <div class="content">
             <h2 tabindex="0">Sobre nós</h2>
             <p class="descricao">
@@ -87,7 +92,6 @@
     </section>
 
     <!-- Seção Atividades -->
-
     <section class="atividades" id="atividades">
         <h2 tabindex="0" class="atividades-titulo" data-aos="fade-up">NOSSAS ATIVIDADES</h2>
 
@@ -140,7 +144,6 @@
     </section>
 
     <!-- Seção Nossa História -->
-
     <section class="nossa-historia" id="nossa-historia">
         <div class="historia-container">
             <div class="historia-topo">
@@ -158,15 +161,16 @@
                 </div>
             </div>
             <div class="historia-stats">
-                <div class="stat-card" data-aos="zoom-up" data-aos-delay="200">
+                <!-- Alterado de zoom-up (que não existe no AOS) para zoom-in-up -->
+                <div class="stat-card" data-aos="zoom-in-up" data-aos-delay="200">
                     <h3 tabindex="0">+250</h3>
                     <p>Crianças cadastradas e ajudadas</p>
                 </div>
-                <div class="stat-card" data-aos="zoom-up" data-aos-delay="400">
+                <div class="stat-card" data-aos="zoom-in-up" data-aos-delay="400">
                     <h3 tabindex="0">6 ANOS</h3>
                     <p>De história</p>
                 </div>
-                <div class="stat-card" data-aos="zoom-up" data-aos-delay="600">
+                <div class="stat-card" data-aos="zoom-in-up" data-aos-delay="600">
                     <h3 tabindex="0">8</h3>
                     <p>Voluntários</p>
                 </div>
@@ -175,43 +179,33 @@
     </section>
 
     <!-- Seção Galeria -->
-
     <section class="galeria-container" id="galeria">
 
-        <h2 tabindex="0">Galeria</h2>
+        <h2 tabindex="0" data-aos="fade-up">Galeria</h2>
 
         <div class="grid-galeria">
-
-            <img src="img/galeria/criança1.png" alt="Crianças da ONG em atividade" tabindex="0" loading="lazy">
-
-            <img src="img/galeria/criança2.png" alt="Projeto Resgate de Vidas" tabindex="0" loading="lazy">
-
-            <img src="img/galeria/criança3.png" alt="Atendimento na ONG" tabindex="0" loading="lazy">
-
-            <img src="img/galeria/criança4.png" alt="Ação social Itapetininga" tabindex="0" loading="lazy">
-
-            <img src="img/galeria/criança5.png" alt="Criança feliz projeto" tabindex="0" loading="lazy">
-
-            <img src="img/galeria/criança6.png" alt="Momentos da ONG" tabindex="0" loading="lazy">
-
-            <img src="img/galeria/criança7.png" alt="Atividades pedagógicas" tabindex="0" loading="lazy">
-
-            <img src="img/galeria/criança8.png" alt="Alimentação e cuidado" tabindex="0" loading="lazy">
-
-            <img src="img/galeria/criança9.png" alt="União e esperança" tabindex="0" loading="lazy">
-
+            <!-- Adicionado efeito fade-up nas imagens da galeria em cascata -->
+            <img src="img/galeria/criança1.png" alt="Crianças da ONG em atividade" tabindex="0" loading="lazy" data-aos="fade-up" data-aos-delay="100">
+            <img src="img/galeria/criança2.png" alt="Projeto Resgate de Vidas" tabindex="0" loading="lazy" data-aos="fade-up" data-aos-delay="200">
+            <img src="img/galeria/criança3.png" alt="Atendimento na ONG" tabindex="0" loading="lazy" data-aos="fade-up" data-aos-delay="300">
+            <img src="img/galeria/criança4.png" alt="Ação social Itapetininga" tabindex="0" loading="lazy" data-aos="fade-up" data-aos-delay="400">
+            <img src="img/galeria/criança5.png" alt="Criança feliz projeto" tabindex="0" loading="lazy" data-aos="fade-up" data-aos-delay="500">
+            <img src="img/galeria/criança6.png" alt="Momentos da ONG" tabindex="0" loading="lazy" data-aos="fade-up" data-aos-delay="600">
+            <img src="img/galeria/criança7.png" alt="Atividades pedagógicas" tabindex="0" loading="lazy" data-aos="fade-up" data-aos-delay="700">
+            <img src="img/galeria/criança8.png" alt="Alimentação e cuidado" tabindex="0" loading="lazy" data-aos="fade-up" data-aos-delay="800">
+            <img src="img/galeria/criança9.png" alt="União e esperança" tabindex="0" loading="lazy" data-aos="fade-up" data-aos-delay="900">
         </div>
 
     </section>
 
     <section class="como-apoiar" id="apoiar">
-        <div class="apoiar-container">
+        <div class="apoiar-container" data-aos="zoom-in" data-aos-duration="1000">
             <h2 tabindex="0">COMO APOIAR</h2>
             <p class="apoiar-intro" tabindex="0">
                 A sua contribuição é o que mantém o nosso projeto vivo. Com o seu apoio, podemos continuar resgatando vidas e construindo um futuro melhor para centenas de crianças e famílias.
             </p>
 
-            <div class="transparencia-box" tabindex="0">
+            <div class="transparencia-box" tabindex="0" data-aos="fade-up" data-aos-delay="300">
                 <h3>Transparência: Para onde vai a sua doação?</h3>
                 <p>Levamos a sério cada centavo doado. Seu investimento social é revertido diretamente para a manutenção e expansão das nossas atividades diárias:</p>
                 <ul class="transparencia-lista">
@@ -222,7 +216,7 @@
                 </ul>
             </div>
 
-            <div class="cta-doacao">
+            <div class="cta-doacao" data-aos="zoom-in" data-aos-delay="500">
                 <a href="doacao.html" class="btn-doar-destaque">Quero Transformar Vidas</a>
             </div>
         </div>
@@ -232,7 +226,7 @@
 
     <!--Seção do contato-->
     <footer class="main-footer" id="contato">
-        <div class="footer-container">
+        <div class="footer-container" data-aos="fade-up">
             <div class="footer-info">
                 <h2 tabindex="0" class="footer-title">FALE COM A GENTE!</h2>
                 <p class="footer-desc">Juntos levaremos oportunidades para milhares de vidas de crianças e suas
@@ -254,7 +248,7 @@
                 </div>
             </div>
 
-            <div class="footer-form">
+            <div class="footer-form" data-aos="fade-left" data-aos-delay="200">
                 <form action="#">
                     <input type="text" placeholder="Nome completo" class="full-width">
                     <div class="form-row">
@@ -268,7 +262,7 @@
                 </form>
             </div>
 
-            <div class="footer-map">
+            <div class="footer-map" data-aos="zoom-in" data-aos-delay="400">
                 <iframe title="Mapa de localização da sede em Itapetininga" width="100%" height="100%"
                     style="border:0; min-height: 350px; border-radius: 8px;" loading="lazy" allowfullscreen
                     referrerpolicy="no-referrer-when-downgrade"
@@ -309,6 +303,15 @@
         </div>
     </footer>
 
+    <!-- JS do AOS e inicialização -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            once: true, // Se quiser que a animação ocorra apenas uma vez ao descer a tela, mude para false se quiser que anime sempre
+            offset: 100 // Ajuste para iniciar a animação mais cedo ou mais tarde ao rolar
+        });
+    </script>
+    
     <script src="script/js/scripts.js"></script>
 
 </body>
