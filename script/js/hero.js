@@ -1,57 +1,62 @@
-const slider = document.querySelector('.slides');
-const radios = document.querySelectorAll('input[name="radio-btn"]');
-let startX = 0;
+const wrapper = document.querySelector('.slides-wrapper');
+const slides = document.querySelectorAll('.slide');
+const dots = document.querySelectorAll('.nav-dot');
 let currentIndex = 0;
+let autoPlayTimer;
 
-// Registra onde o usuário encostou o dedo
-slider.addEventListener('touchstart', (e) => {
-    startX = e.touches[0].clientX;
+// Função principal de movimento
+function goToSlide(index) {
+    if (index < 0) index = slides.length - 1;
+    if (index >= slides.length) index = 0;
+
+    currentIndex = index;
+    
+    // Move o slider usando Transform (Mais rápido)
+    wrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+    // Atualiza as bolinhas
+    dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === currentIndex);
+    });
+}
+
+// Navegação por cliques nas bolinhas
+dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+        goToSlide(index);
+        resetAutoPlay();
+    });
+    
+    // Muda o slide ao focar com Tab (Acessibilidade)
+    dot.addEventListener('focus', () => goToSlide(index));
 });
 
-// Registra onde o usuário soltou o dedo e calcula a direção
-slider.addEventListener('touchend', (e) => {
+// Lógica de Touch (Swipe)
+let startX = 0;
+wrapper.addEventListener('touchstart', e => startX = e.touches[0].clientX, {passive: true});
+
+wrapper.addEventListener('touchend', e => {
     const endX = e.changedTouches[0].clientX;
-    const diffX = startX - endX;
+    const diff = startX - endX;
 
-    // Sensibilidade: só muda se arrastar mais de 50px
-    if (Math.abs(diffX) > 50) {
-        if (diffX > 0) {
-            // Deslizou para a esquerda -> Próximo Slide
-            currentIndex = (currentIndex + 1) % radios.length;
-        } else {
-            // Deslizou para a direita -> Slide Anterior
-            currentIndex = (currentIndex - 1 + radios.length) % radios.length;
-        }
-        
-        // Marca o rádio correspondente para disparar a transição CSS
-        radios[currentIndex].checked = true;
+    if (Math.abs(diff) > 50) { // Sensibilidade de 50px
+        diff > 0 ? goToSlide(currentIndex + 1) : goToSlide(currentIndex - 1);
+        resetAutoPlay();
     }
-});
+}, {passive: true});
 
-// Sincroniza o índice caso o usuário clique nas bolinhas manualmente
-radios.forEach((radio, index) => {
-    radio.addEventListener('change', () => {
-        currentIndex = index;
-    });
-});
+// Auto-play Inteligente
+function startAutoPlay() {
+    autoPlayTimer = setInterval(() => goToSlide(currentIndex + 1), 5000);
+}
 
-// Acessibilidade: Permite navegação por teclado nas bolinhas
+function resetAutoPlay() {
+    clearInterval(autoPlayTimer);
+    startAutoPlay();
+}
 
-const manualBtns = document.querySelectorAll('.manual-btn');
+// Para o auto-play se o usuário estiver interagindo
+wrapper.addEventListener('mouseenter', () => clearInterval(autoPlayTimer));
+wrapper.addEventListener('mouseleave', startAutoPlay);
 
-manualBtns.forEach((btn, index) => {
-    // 1. Muda o slide ao pressionar Enter ou Espaço
-    btn.addEventListener('keydown', (e) => {
-        if (e.key === "Enter" || e.key === " ") {
-            e.preventDefault(); 
-            radios[index].checked = true;
-            currentIndex = index; 
-        }
-    });
-
-    // 2. Muda o slide automaticamente ao navegar com Tab
-    btn.addEventListener('focus', () => {
-        radios[index].checked = true;
-        currentIndex = index;
-    });
-});
+startAutoPlay(); // Inicia o carrossel

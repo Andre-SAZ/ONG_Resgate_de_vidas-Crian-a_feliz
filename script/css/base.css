@@ -11,12 +11,14 @@
 
 html {
     scroll-behavior: smooth;
+    /* Define um respiro global para âncoras (links do menu) */
     scroll-padding-top: var(--header-height);
 }
 
 body {
     font-family: 'Poppins', sans-serif;
     -webkit-font-smoothing: antialiased;
+    color: #333;
 }
 
 img {
@@ -24,17 +26,24 @@ img {
     display: block;
 }
 
-/* Acessibilidade de Foco */
+/* ==========================================================================
+   ACESSIBILIDADE E FOCO
+   ========================================================================== */
+
+/* Remove o contorno padrão do navegador para cliques de mouse */
 *:focus {
     outline: none;
 }
 
+/* Aplica o destaque dourado apenas na navegação por teclado */
 *:focus-visible {
     outline: 3px solid var(--focus-color);
     outline-offset: 4px;
 }
 
-/* Agrupamento de Margens de Scroll (Evita que o header cubra o conteúdo) */
+/* MARGENS DE SCROLL 
+   Garante que, ao focar ou clicar em um link, o conteúdo não fique sob o header fixo.
+*/
 section, 
 .slider, 
 [tabindex="0"], 
@@ -42,16 +51,22 @@ a, button, input, textarea {
     scroll-margin-top: calc(var(--header-height) + 20px);
 }
 
-/* Exceções de Margem */
+/* Alvo do Skip Link (Pulo de conteúdo) não precisa de margem extra */
 #conteudo-principal {
     scroll-margin-top: var(--header-height);
+    outline: none;
 }
 
+/* Imagens da galeria com margem maior para centralizar melhor no foco */
 .grid-galeria img {
     scroll-margin-top: calc(var(--header-height) + 50px);
 }
 
-/* Utilitários */
+/* ==========================================================================
+   UTILITÁRIOS E SKIP LINK
+   ========================================================================== */
+
+/* Esconde elementos visualmente mas mantém para leitores de tela */
 .sr-only {
     position: absolute;
     width: 1px;
@@ -63,17 +78,19 @@ a, button, input, textarea {
     border: 0;
 }
 
+/* Link de acessibilidade que aparece apenas no Tab */
 .skip-link {
     position: absolute;
     top: -100px;
     left: 0;
     background: var(--focus-color);
     color: #7b0404;
-    padding: 10px;
-    z-index: 2000;
+    padding: 12px 20px;
+    z-index: 3000;
     text-decoration: none;
     font-weight: bold;
-    transition: top 0.3s;
+    border-radius: 0 0 8px 0;
+    transition: top 0.3s ease;
 }
 
 .skip-link:focus-visible {
