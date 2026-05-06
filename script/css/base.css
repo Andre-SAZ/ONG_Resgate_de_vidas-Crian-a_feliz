@@ -4,11 +4,39 @@
     box-sizing: border-box;
 }
 
-body {
-    font-family: 'Poppins', sans-serif;
+:root {
+    --header-height: 100px;
 }
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 100px; /* Ajuste esse valor para a altura exata do seu cabeçalho */
+    scroll-padding-top: var(--header-height);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+    max-width: 100%;
+    display: block; /* Remove espaços vazios estranhos abaixo da imagem */
+}
+
+a:focus, button:focus {
+    outline: 3px solid #FFD700; /* Um dourado/amarelo para contrastar com o vermelho */
+    outline-offset: 4px;
+}
+
+/* Esconde elementos visualmente mas mantém para leitores de tela (SR Only) */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
 }

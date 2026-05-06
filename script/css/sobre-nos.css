@@ -8,15 +8,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: left;
-}
-
-.sobre-nos .descricao {
-    margin-top: 20px;
-    color: #fff;
-    font-size: 1.2rem;
-    line-height: 1.8;
-    text-align: left;
+    /* Removido o text-align: left daqui pois já está no .content */
 }
 
 .sobre-nos-container .content {
@@ -24,13 +16,36 @@
     padding: 40px;
     border-radius: 15px;
     max-width: 900px;
+    color: #fff; /* Define a cor para tudo que estiver aqui dentro */
+    text-align: left;
 }
 
-.sobre-nos-container h2 { color: #fff; font-size: 3rem; margin-bottom: 20px; }
-.sobre-nos-container .descricao { color: #fff; font-size: 1.2rem; line-height: 1.8; }
+.sobre-nos-container h2 { 
+    font-size: 3rem; 
+    margin-bottom: 20px; 
+}
 
+.sobre-nos-container .descricao { 
+    font-size: 1.2rem; 
+    line-height: 1.8; 
+}
+
+/* Responsividade */
 @media (max-width: 800px) {
-    .sobre-nos-container { padding: 60px 5%; }
-    .sobre-nos-container h2 { font-size: 2rem; }
-    .sobre-nos-container .descricao { font-size: 1rem; }
+    .sobre-nos-container { 
+        padding: 60px 5%; 
+        min-height: auto; /* No mobile, deixa a altura se ajustar ao conteúdo */
+    }
+    
+    .sobre-nos-container .content {
+        padding: 25px; /* Reduz um pouco o respiro interno no mobile */
+    }
+
+    .sobre-nos-container h2 { 
+        font-size: 2rem; 
+    }
+    
+    .sobre-nos-container .descricao { 
+        font-size: 1rem; 
+    }
 }
