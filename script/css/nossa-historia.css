@@ -1,139 +1,105 @@
-/* --- SEÇÃO NOSSA HISTÓRIA (NOVO CSS CORRIGIDO E SEGURO) --- */
-
+/* --- Estilo Geral (Desktop) --- */
 .nossa-historia {
-    width: 100%;
-    background-color: #ffffff; /* Fundo base branco */
-    padding: 80px 0; /* Padding vertical para respiração geral */
-    font-family: 'Poppins', sans-serif;
-    position: relative;
-    overflow: hidden; /* Importante para o fundo sangrado */
+    padding: 60px 8%; /* Reduzi o padding para ficar menos "vazio" */
+    background-color: #fdfdfd;
 }
 
 .historia-container {
-    max-width: 1100px;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 0 5%;
-    position: relative; /* Contexto de z-index para imagem e stats */
 }
 
-/* Estrutura de cima */
 .historia-topo {
     display: grid;
     grid-template-columns: 1fr 1.2fr;
-    gap: 40px;
+    gap: 40px; /* Reduzi o espaço entre imagem e texto */
     align-items: center;
-    margin-bottom: 0px; /* Sem margem inferior para a div de stats se aproximar */
 }
 
 .historia-imagem img {
     width: 100%;
-    max-width: 450px;
+    max-width: 450px; /* Limita o tamanho da imagem */
     height: auto;
+    border-radius: 4px;
     display: block;
-    margin: 0 auto; /* Centraliza */
-    position: relative; /* Contexto de posicionamento para o overlap */
-    z-index: 10; /* Garante que fique por cima de tudo (texto e fundo vermelho) */
-    
-    /* EFEITO DE OVERLAP: Empurra a imagem para baixo sem empurrar o texto */
-    margin-bottom: -120px; 
+    margin: 0 auto;
 }
 
 .historia-texto h2 {
-    color: #7b0404;
-    font-size: 2.5rem;
     font-family: 'Sorts Mill Goudy', serif;
-    margin-bottom: 20px;
+    font-size: 2.5rem; /* Fonte menor e mais elegante */
+    color: #7b0404; /* Vermelho principal */
+    margin-bottom: 15px;
+    border-left: 8px solid #7b0404; /* Barra vermelha lateral */
+    padding-left: 15px;
+    line-height: 1.1;
 }
 
 .historia-texto p {
-    color: #444;
-    font-size: 1.05rem;
+    font-size: 1rem; /* Fonte do texto reduzida */
     line-height: 1.6;
+    color: #333;
     margin-bottom: 15px;
 }
 
-/* Estrutura das Estatísticas (O fundo vermelho agora flutua) */
+/* --- Estatísticas (Stats) --- */
 .historia-stats {
-    display: flex;
-    justify-content: flex-end; /* Alinha os cards à direita */
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
-    flex-wrap: wrap;
-    
-    /* PADDINGS: vertical e lateral */
-    padding: 150px 20px 80px 20px; /* Padding superior generoso para compensar o overlap da imagem */
-    
-    position: relative; /* Contexto de posicionamento para o background fake */
-    z-index: 1; /* Fica acima do background fake mas abaixo da imagem circular */
-    
-    /* Sem overflow: hidden aqui para os cards não sumirem lateralmente */
-    box-sizing: border-box;
-}
-
-/* O Background Fake Vermelho (Pseudoelemento confiável e sangrado) */
-.historia-stats::before {
-    content: '';
-    position: absolute;
-    background-color: #7b0404; /* Vermelho */
-    width: 100vw; /* Largura total da viewport */
-    height: 100%; /* Altura total da div de stats */
-    top: 0;
-    left: 50%; /* Centralização base */
-    transform: translateX(-50%); /* Centralização final matemática confiável que corrige scrollbars */
-    z-index: -1; /* Fica atrás dos cards */
-    box-sizing: border-box;
 }
 
 .stat-card {
-    border: 2px solid #ffffff;
-    border-radius: 20px;
-    padding: 30px 20px;
+    background: #fff;
+    padding: 30px 15px;
     text-align: center;
-    color: #ffffff;
-    min-width: 180px;
-    flex: 1;
-    max-width: 250px;
-    box-sizing: border-box;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border-top: 5px solid #7b0404; /* Mantendo o vermelho no topo dos números */
+    transition: transform 0.3s ease;
 }
 
 .stat-card h3 {
-    font-size: 2.2rem;
-    font-weight: 700;
+    font-size: 2.2rem; /* Números um pouco menores */
+    color: #7b0404;
     margin-bottom: 5px;
 }
 
 .stat-card p {
-    font-size: 0.95rem;
-    font-weight: 400;
-    line-height: 1.3;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #666;
 }
 
-/* Responsividade */
-@media (max-width: 900px) {
-    .nossa-historia {
-        padding: 40px 0;
-    }
-    
+/* --- RESPONSIVIDADE (Mobile) --- */
+
+@media (max-width: 968px) {
     .historia-topo {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* Empilha no tablet/celular */
         text-align: center;
-        gap: 20px;
+        gap: 30px;
     }
 
-    .historia-imagem img {
-        max-width: 300px;
-        /* No mobile, o overlap é difícil. Melhor centralizar e remover o margin negativo */
-        margin: 0 auto;
-        margin-bottom: 20px; 
+    .historia-texto {
+        padding-left: 0;
+    }
+
+    .historia-texto h2 {
+        font-size: 2rem;
+        border-left: none; /* Remove a barra lateral no mobile */
+        border-bottom: 4px solid #7b0404; /* Coloca a barra embaixo do título */
+        display: inline-block;
+        padding-bottom: 10px;
+        padding-left: 0;
     }
 
     .historia-stats {
-        justify-content: center; /* Centraliza os cards no mobile */
-        padding: 60px 20px; /* Menor padding lateral e sem padding superior excessivo */
+        grid-template-columns: 1fr; /* Stats em uma coluna no celular */
+        gap: 15px;
     }
 
-    .stat-card {
-        max-width: 100%;
-        flex: none; /* Cards ocupam largura total e quebram linha */
-        width: 100%;
+    .nossa-historia {
+        padding: 40px 5%; /* Menos espaço lateral no celular */
     }
 }
