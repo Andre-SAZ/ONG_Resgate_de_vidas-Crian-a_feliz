@@ -159,6 +159,8 @@ textarea {
     display: flex;
     flex-direction: column;
     line-height: 1;
+    font-family: Goudy;
+    text-transform: uppercase;
 }
 
 .logo-title { font-weight: 700; font-size: 0.9rem; }
