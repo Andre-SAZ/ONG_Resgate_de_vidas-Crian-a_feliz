@@ -6,6 +6,7 @@
 
 :root {
     --header-height: 100px;
+    --focus-color: #FFD700;
 }
 
 html {
@@ -16,20 +17,41 @@ html {
 body {
     font-family: 'Poppins', sans-serif;
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
 }
 
 img {
     max-width: 100%;
-    display: block; /* Remove espaços vazios estranhos abaixo da imagem */
+    display: block;
 }
 
-a:focus, button:focus {
-    outline: 3px solid #FFD700; /* Um dourado/amarelo para contrastar com o vermelho */
+/* Acessibilidade de Foco */
+*:focus {
+    outline: none;
+}
+
+*:focus-visible {
+    outline: 3px solid var(--focus-color);
     outline-offset: 4px;
 }
 
-/* Esconde elementos visualmente mas mantém para leitores de tela (SR Only) */
+/* Agrupamento de Margens de Scroll (Evita que o header cubra o conteúdo) */
+section, 
+.slider, 
+[tabindex="0"], 
+a, button, input, textarea {
+    scroll-margin-top: calc(var(--header-height) + 20px);
+}
+
+/* Exceções de Margem */
+#conteudo-principal {
+    scroll-margin-top: var(--header-height);
+}
+
+.grid-galeria img {
+    scroll-margin-top: calc(var(--header-height) + 50px);
+}
+
+/* Utilitários */
 .sr-only {
     position: absolute;
     width: 1px;
@@ -39,4 +61,21 @@ a:focus, button:focus {
     overflow: hidden;
     clip: rect(0, 0, 0, 0);
     border: 0;
+}
+
+.skip-link {
+    position: absolute;
+    top: -100px;
+    left: 0;
+    background: var(--focus-color);
+    color: #7b0404;
+    padding: 10px;
+    z-index: 2000;
+    text-decoration: none;
+    font-weight: bold;
+    transition: top 0.3s;
+}
+
+.skip-link:focus-visible {
+    top: 0;
 }

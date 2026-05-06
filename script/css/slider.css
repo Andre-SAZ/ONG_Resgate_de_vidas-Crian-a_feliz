@@ -26,6 +26,13 @@
     z-index: 10;
 }
 
+/* No seu slider.css ou base.css */
+.manual-btn:focus-visible {
+    outline: 3px solid #FFD700;
+    outline-offset: 4px;
+    background: rgba(255, 215, 0, 0.3); /* Um leve brilho interno ao focar */
+}
+
 .manual-btn {
     border: 2px solid #fff;
     padding: 6px; border-radius: 50%;

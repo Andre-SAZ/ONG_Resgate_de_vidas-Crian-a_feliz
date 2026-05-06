@@ -1,7 +1,7 @@
 /* ==========================================================================
    Configurações Gerais do Header
    ========================================================================== */
-header {
+.main-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -9,12 +9,12 @@ header {
     background-color: #7b0404;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     
-    /* Mantém o menu fixo no topo */
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1000; 
+    z-index: 1000;
+    box-sizing: border-box; /* Garante que o padding não estoure a largura de 100% */
 }
 
 /* ==========================================================================
@@ -22,15 +22,13 @@ header {
    ========================================================================== */
 .logo {
     display: flex;
-    align-items: center; 
+    align-items: center;
+    gap: 12px; 
 }
 
 .logo img {
-    height: 0px; 
+    height: 75px; /* Ajuste conforme a necessidade da logo */
     width: auto;
-    flex-shrink: 0;
-    position: relative;
-    /* Removidas margens negativas para evitar quebra de layout */
 }
 
 .logo-text {
@@ -38,19 +36,22 @@ header {
     flex-direction: column;
     justify-content: center;
     color: white;
-    padding-left: 10px; 
     line-height: 1.1;
 }
 
+.logo-text h1 {
+    margin: 0;
+}
+
 .logo-text .titulo {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
 
 .logo-text .subtitulo {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     font-weight: 400;
     opacity: 0.9; 
 }
@@ -60,152 +61,135 @@ header {
    ========================================================================== */
 .nav-links {
     display: flex;
+    align-items: center;
     list-style: none;
-}
-
-.nav-links li { 
-    margin-left: 20px; 
+    margin: 0;
+    padding: 0;
+    gap: 25px; /* Substitui o margin-left nos LIs, criando espaçamento igual */
 }
 
 .nav-links a {
     text-decoration: none;
     color: white;
-    font-weight: bold;
+    font-weight: 600;
+    font-size: 1rem;
     padding-bottom: 4px;
     border-bottom: 2px solid transparent;
-    transition: border-color 0.3s ease;
+    transition: border-color 0.3s ease, color 0.3s ease;
 }
 
-.nav-links a:hover { 
+/* Efeito hover para os links comuns (exclui o botão de doar) */
+.nav-links a:not(.btn-doar):hover { 
     border-bottom: 2px solid white; 
 }
 
-/* Botão de Doação */
-.doar {
-    border: white 1.5px solid;
+/* Estilo específico para o Botão de Doação */
+.btn-doar {
+    border: 2px solid white !important;
     border-radius: 30px;
-    padding: 5px 15px;
-    transition: background 0.3s ease, color 0.3s ease;
+    padding: 8px 20px !important;
+    background-color: transparent;
+    transition: background-color 0.3s ease, color 0.3s ease !important;
 }
 
-.doar:hover {
+.btn-doar:hover {
     background-color: white;
-}
-
-.doar:hover a {
-    color: #7b0404;
+    color: #7b0404 !important;
 }
 
 /* ==========================================================================
-   Botão Hamburguer (Base)
+   Botão Hamburguer
    ========================================================================== */
 .hamburger {
-    display: none; /* Escondido por padrão no desktop */
+    display: none;
     background: none;
     border: none;
     flex-direction: column;
-    gap: 5px;
+    justify-content: space-between;
+    height: 24px;
     cursor: pointer;
     z-index: 1001;
-    padding: 5px;
+    padding: 0;
 }
 
 .line {
     width: 30px; 
     height: 3px;
     background-color: white;
-    transition: 0.4s;
-}
-
-/* Esconde elementos mobile no desktop */
-.mobile-only { 
-    display: none; 
+    transition: transform 0.4s ease, opacity 0.4s ease;
+    border-radius: 2px;
 }
 
 /* ==========================================================================
    Responsividade (Mobile)
    ========================================================================== */
-@media (max-width: 800px) {
-    
+@media (max-width: 950px) { /* Breakpoint um pouco maior para acomodar todos os itens */
     .logo img {
-        height: 65px; 
-    }
-
-    .logo-text .titulo {
-        font-size: 0.95rem;
+        height: 60px; 
     }
 
     .hamburger {
-        display: flex; /* Aparece no mobile */
-    }
-
-    .desktop-only { 
-        display: none; 
-    }
-
-    .mobile-only { 
-        display: block; 
-        margin-top: 20px; 
+        display: flex;
     }
 
     /* Menu Lateral/Dropdown */
-    #secoes {
+    .nav-menu {
         position: absolute;
-        top: 100%; /* Abre logo abaixo do header */
-        right: 0;
-        width: 100%; /* Ocupa a largura total em telas pequenas */
-        max-width: 280px;
+        top: 100%;
+        left: 0;
+        width: 100%;
         background-color: #7b0404;
-        padding: 30px;
-        border-radius: 0 0 0 15px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         
-        /* Estado inicial (escondido) */
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(-10px);
-        transition: all 0.3s ease-in-out;
+        /* Estado oculto */
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease-in-out;
     }
 
-    /* Classe ativada pelo JavaScript */
-    #secoes.active {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
+    /* Classe ativada pelo seu arquivo JavaScript (header.js) */
+    .nav-menu.active {
+        max-height: 500px; /* Expande o menu suavemente */
     }
 
-    /* Transformação do Ícone (X) */
-    .hamburger.active .line:nth-child(1) { 
-        transform: rotate(45deg) translate(5px, 6px); 
-    }
-    .hamburger.active .line:nth-child(2) { 
-        opacity: 0; 
-    }
-    .hamburger.active .line:nth-child(3) { 
-        transform: rotate(-45deg) translate(5px, -7px); 
-    }
-
-    /* Ajuste dos Links no Mobile */
     .nav-links { 
         flex-direction: column; 
-        align-items: flex-start; 
-    }
-
-    .nav-links li { 
-        margin: 12px 0; 
-        width: 100%; 
+        align-items: center; 
+        padding: 20px 0;
+        gap: 20px;
     }
     
     .nav-links a {
         font-size: 1.1rem;
     }
+
+    .item-doar {
+        margin-top: 10px;
+    }
+
+    /* Animação do Ícone Hamburguer virando X */
+    .hamburger.active .line:nth-child(1) { 
+        transform: translateY(10.5px) rotate(45deg); 
+    }
+    .hamburger.active .line:nth-child(2) { 
+        opacity: 0; 
+    }
+    .hamburger.active .line:nth-child(3) { 
+        transform: translateY(-10.5px) rotate(-45deg); 
+    }
 }
 
 @media (max-width: 480px) {
-    .logo {
-        gap: 5px;
+    .main-header {
+        padding: 1rem 4%;
     }
-    
     .logo img {
-        height: 55px;
+        height: 50px;
+    }
+    .logo-text .titulo {
+        font-size: 1rem;
+    }
+    .logo-text .subtitulo {
+        font-size: 0.8rem;
     }
 }

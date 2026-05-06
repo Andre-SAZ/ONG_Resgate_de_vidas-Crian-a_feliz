@@ -34,3 +34,24 @@ radios.forEach((radio, index) => {
         currentIndex = index;
     });
 });
+
+// Acessibilidade: Permite navegação por teclado nas bolinhas
+
+const manualBtns = document.querySelectorAll('.manual-btn');
+
+manualBtns.forEach((btn, index) => {
+    // 1. Muda o slide ao pressionar Enter ou Espaço
+    btn.addEventListener('keydown', (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault(); 
+            radios[index].checked = true;
+            currentIndex = index; 
+        }
+    });
+
+    // 2. Muda o slide automaticamente ao navegar com Tab
+    btn.addEventListener('focus', () => {
+        radios[index].checked = true;
+        currentIndex = index;
+    });
+});
