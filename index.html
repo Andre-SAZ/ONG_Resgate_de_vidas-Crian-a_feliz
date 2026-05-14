@@ -17,10 +17,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sorts+Mill+Goudy:ital@0;1&display=swap" rel="stylesheet">
-    
+
     <!-- CSS do AOS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
+
     <title>Resgate de vidas - Criança feliz</title>
 </head>
 
@@ -61,166 +61,193 @@
     </header>
 
     <main>
-    <div id="conteudo-principal" tabindex="-1" style="outline: none;"></div>
+        <div id="conteudo-principal" tabindex="-1" style="outline: none;"></div>
 
-    <div class="slider" aria-label="Destaques da ONG">
-        <div class="slides-wrapper">
-            <div class="slide"><img src="img/1.png" alt="Crianças brincando"></div>
-            <div class="slide"><img src="img/2.png" alt="Distribuição de alimentos"></div>
-            <div class="slide"><img src="img/4.png" alt="Voluntários reunidos"></div>
+        <div class="slider" aria-label="Destaques da ONG">
+            <div class="slides-wrapper">
+                <div class="slide"><img src="img/1.png" alt="Crianças brincando"></div>
+                <div class="slide"><img src="img/2.png" alt="Distribuição de alimentos"></div>
+                <div class="slide"><img src="img/4.png" alt="Voluntários reunidos"></div>
+            </div>
+
+            <div class="slider-nav">
+                <button class="nav-dot active" aria-label="Slide 1"></button>
+                <button class="nav-dot" aria-label="Slide 2"></button>
+                <button class="nav-dot" aria-label="Slide 3"></button>
+            </div>
         </div>
 
-        <div class="slider-nav">
-            <button class="nav-dot active" aria-label="Slide 1"></button>
-            <button class="nav-dot" aria-label="Slide 2"></button>
-            <button class="nav-dot" aria-label="Slide 3"></button>
-        </div>
-    </div>
+        <!-- Adicionado data-aos="fade-up" para animar a entrada -->
+        <section id="sobre-nos" class="sobre-nos-container" data-aos="fade-up" data-aos-duration="1000">
+            <div class="content">
+                <h2 tabindex="0">Sobre nós</h2>
+                <p class="descricao">
+                    O Projeto Resgate de Vidas transforma a realidade de crianças e famílias em situação de
+                    vulnerabilidade, oferecendo muito mais do que ajuda — oferecendo cuidado, esperança e um novo
+                    caminho.<br><br>
+                    Diariamente, proporcionamos alimentação, apoio educacional, acompanhamento especializado e momentos
+                    de acolhimento, criando um ambiente seguro onde cada criança pode sonhar, crescer e se sentir
+                    amada.<br><br>
+                    Acreditamos que vidas podem ser restauradas e gerações transformadas — e que cada pessoa pode fazer
+                    parte dessa missão.
+                </p>
+            </div>
+        </section>
 
-    <!-- Adicionado data-aos="fade-up" para animar a entrada -->
-    <section id="sobre-nos" class="sobre-nos-container" data-aos="fade-up" data-aos-duration="1000">
-        <div class="content">
-            <h2 tabindex="0">Sobre nós</h2>
-            <p class="descricao">
-                O Projeto Resgate de Vidas transforma a realidade de crianças e famílias em situação de vulnerabilidade, oferecendo muito mais do que ajuda — oferecendo cuidado, esperança e um novo caminho.<br><br>
-                Diariamente, proporcionamos alimentação, apoio educacional, acompanhamento especializado e momentos de acolhimento, criando um ambiente seguro onde cada criança pode sonhar, crescer e se sentir amada.<br><br>
-                Acreditamos que vidas podem ser restauradas e gerações transformadas — e que cada pessoa pode fazer parte dessa missão.
-            </p>
-        </div>
-    </section>
+        <!-- Seção Atividades -->
+        <section class="atividades" id="atividades">
+            <h2 tabindex="0" class="atividades-titulo" data-aos="fade-up">NOSSAS ATIVIDADES</h2>
 
-    <!-- Seção Atividades -->
-    <section class="atividades" id="atividades">
-        <h2 tabindex="0" class="atividades-titulo" data-aos="fade-up">NOSSAS ATIVIDADES</h2>
-
-        <div class="atividades-container">
-            <!-- Item 1 -->
-            <div tabindex="0" class="atividade-item" data-aos="zoom-in" data-aos-delay="200">
-                <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <div class="icone-circulo">
-                            <img src="img/elementos/biblia.png" alt="Ensino">
+            <div class="atividades-container">
+                <!-- Item 1 -->
+                <div tabindex="0" class="atividade-item" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="icone-circulo">
+                                <img src="img/elementos/biblia.png" alt="Ensino">
+                            </div>
+                            <p>Ensinos Bíblicos</p>
                         </div>
-                        <p>Ensinos Bíblicos</p>
-                    </div>
-                    <div class="flip-card-back">
-                        <p>Proporcionamos momentos de reflexão e ensinamentos baseados em princípios bíblicos para as crianças.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Item 2 -->
-            <div tabindex="0" class="atividade-item" data-aos="zoom-in" data-aos-delay="400">
-                <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <div class="icone-circulo">
-                            <img src="img/elementos/frutas.png" alt="Alimentação">
+                        <div class="flip-card-back">
+                            <p>Proporcionamos momentos de reflexão e ensinamentos baseados em princípios bíblicos para
+                                as crianças.</p>
                         </div>
-                        <p>Alimentação</p>
-                    </div>
-                    <div class="flip-card-back">
-                        <p>Oferecemos refeições nutritivas e balanceadas, garantindo o bem-estar e a saúde de todos os atendidos.</p>
                     </div>
                 </div>
-            </div>
 
-            <!-- Item 3 -->
-            <div tabindex="0" class="atividade-item" data-aos="zoom-in" data-aos-delay="600">
-                <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <div class="icone-circulo">
-                            <img src="img/elementos/livros.png" alt="Aprendizado">
+                <!-- Item 2 -->
+                <div tabindex="0" class="atividade-item" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="icone-circulo">
+                                <img src="img/elementos/frutas.png" alt="Alimentação">
+                            </div>
+                            <p>Alimentação</p>
                         </div>
-                        <p>Aprendizado</p>
+                        <div class="flip-card-back">
+                            <p>Oferecemos refeições nutritivas e balanceadas, garantindo o bem-estar e a saúde de todos
+                                os atendidos.</p>
+                        </div>
                     </div>
-                    <div class="flip-card-back">
-                        <p>Apoiamos o desenvolvimento educacional através de atividades pedagógicas e incentivo à leitura.</p>
+                </div>
+
+                <!-- Item 3 -->
+                <div tabindex="0" class="atividade-item" data-aos="zoom-in" data-aos-delay="600">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="icone-circulo">
+                                <img src="img/elementos/livros.png" alt="Aprendizado">
+                            </div>
+                            <p>Aprendizado</p>
+                        </div>
+                        <div class="flip-card-back">
+                            <p>Apoiamos o desenvolvimento educacional através de atividades pedagógicas e incentivo à
+                                leitura.</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Seção Nossa História -->
-    <section class="nossa-historia" id="nossa-historia">
-        <div class="historia-container">
-            <div class="historia-topo">
-                <div class="historia-imagem" data-aos="fade-right">
-                    <img src="img/nossa-historia.png" alt="Ícone de união">
+        <!-- Seção Nossa História -->
+        <section class="nossa-historia" id="nossa-historia">
+            <div class="historia-container">
+                <div class="historia-topo">
+                    <div class="historia-imagem" data-aos="fade-right">
+                        <img src="img/nossa-historia.png" alt="Ícone de união">
+                    </div>
+                    <div class="historia-texto" data-aos="fade-left">
+                        <h2 tabindex="0">NOSSA HISTÓRIA</h2>
+                        <p>Em junho de 2020, enquanto já atuávamos com a igreja AD Verbo Vivo, nos deparamos com uma
+                            cena
+                            que marcou o início de tudo: uma criança, em uma rua de terra, tentava "fazer um churrasco"
+                            com
+                            tijolos, galhos e pedras, em meio a uma realidade de extrema necessidade.</p>
+                        <p>Diante daquela situação, entendemos que não podíamos permanecer indiferentes. Foi ali,
+                            naquele
+                            momento, que nasceu o Projeto Resgate de Vidas — com o propósito de levar cuidado, dignidade
+                            e
+                            esperança a quem mais precisa.</p>
+                    </div>
                 </div>
-                <div class="historia-texto" data-aos="fade-left">
-                    <h2 tabindex="0">NOSSA HISTÓRIA</h2>
-                    <p>Em junho de 2020, enquanto já atuávamos com a igreja AD Verbo Vivo, nos deparamos com uma cena
-                        que marcou o início de tudo: uma criança, em uma rua de terra, tentava "fazer um churrasco" com
-                        tijolos, galhos e pedras, em meio a uma realidade de extrema necessidade.</p>
-                    <p>Diante daquela situação, entendemos que não podíamos permanecer indiferentes. Foi ali, naquele
-                        momento, que nasceu o Projeto Resgate de Vidas — com o propósito de levar cuidado, dignidade e
-                        esperança a quem mais precisa.</p>
+                <div class="historia-stats">
+                    <!-- Alterado de zoom-up (que não existe no AOS) para zoom-in-up -->
+                    <div class="stat-card" data-aos="zoom-in-up" data-aos-delay="200">
+                        <h3 tabindex="0">+250</h3>
+                        <p>Crianças cadastradas e ajudadas</p>
+                    </div>
+                    <div class="stat-card" data-aos="zoom-in-up" data-aos-delay="400">
+                        <h3 tabindex="0">6 ANOS</h3>
+                        <p>De história</p>
+                    </div>
+                    <div class="stat-card" data-aos="zoom-in-up" data-aos-delay="600">
+                        <h3 tabindex="0">8</h3>
+                        <p>Voluntários</p>
+                    </div>
                 </div>
             </div>
-            <div class="historia-stats">
-                <!-- Alterado de zoom-up (que não existe no AOS) para zoom-in-up -->
-                <div class="stat-card" data-aos="zoom-in-up" data-aos-delay="200">
-                    <h3 tabindex="0">+250</h3>
-                    <p>Crianças cadastradas e ajudadas</p>
-                </div>
-                <div class="stat-card" data-aos="zoom-in-up" data-aos-delay="400">
-                    <h3 tabindex="0">6 ANOS</h3>
-                    <p>De história</p>
-                </div>
-                <div class="stat-card" data-aos="zoom-in-up" data-aos-delay="600">
-                    <h3 tabindex="0">8</h3>
-                    <p>Voluntários</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Seção Galeria -->
-    <section class="galeria-container" id="galeria">
+        <!-- Seção Galeria -->
+        <section class="galeria-container" id="galeria">
 
-        <h2 tabindex="0" data-aos="fade-up">Galeria</h2>
+            <h2 tabindex="0" data-aos="fade-up">Galeria</h2>
 
-        <div class="grid-galeria">
-            <!-- Adicionado efeito fade-up nas imagens da galeria em cascata -->
-            <img src="img/galeria/criança1.png" alt="Crianças da ONG em atividade" tabindex="0" loading="lazy" data-aos="fade-up" data-aos-delay="100">
-            <img src="img/galeria/criança2.png" alt="Projeto Resgate de Vidas" tabindex="0" loading="lazy" data-aos="fade-up" data-aos-delay="200">
-            <img src="img/galeria/criança3.png" alt="Atendimento na ONG" tabindex="0" loading="lazy" data-aos="fade-up" data-aos-delay="300">
-            <img src="img/galeria/criança4.png" alt="Ação social Itapetininga" tabindex="0" loading="lazy" data-aos="fade-up" data-aos-delay="400">
-            <img src="img/galeria/criança5.png" alt="Criança feliz projeto" tabindex="0" loading="lazy" data-aos="fade-up" data-aos-delay="500">
-            <img src="img/galeria/criança6.png" alt="Momentos da ONG" tabindex="0" loading="lazy" data-aos="fade-up" data-aos-delay="600">
-            <img src="img/galeria/criança7.png" alt="Atividades pedagógicas" tabindex="0" loading="lazy" data-aos="fade-up" data-aos-delay="700">
-            <img src="img/galeria/criança8.png" alt="Alimentação e cuidado" tabindex="0" loading="lazy" data-aos="fade-up" data-aos-delay="800">
-            <img src="img/galeria/criança9.png" alt="União e esperança" tabindex="0" loading="lazy" data-aos="fade-up" data-aos-delay="900">
-        </div>
-
-    </section>
-
-    <section class="como-apoiar" id="apoiar">
-        <div class="apoiar-container" data-aos="zoom-in" data-aos-duration="1000">
-            <h2 tabindex="0">COMO APOIAR</h2>
-            <p class="apoiar-intro" tabindex="0">
-                A sua contribuição é o que mantém o nosso projeto vivo. Com o seu apoio, podemos continuar resgatando vidas e construindo um futuro melhor para centenas de crianças e famílias.
-            </p>
-
-            <div class="transparencia-box" tabindex="0" data-aos="fade-up" data-aos-delay="300">
-                <h3>Transparência: Para onde vai a sua doação?</h3>
-                <p>Levamos a sério cada centavo doado. Seu investimento social é revertido diretamente para a manutenção e expansão das nossas atividades diárias:</p>
-                <ul class="transparencia-lista">
-                    <li><strong>Alimentação:</strong> Compra de mantimentos para refeições diárias e montagem de cestas básicas para as famílias.</li>
-                    <li><strong>Educação e Cultura:</strong> Materiais didáticos, livros, instrumentos e recursos para as aulas.</li>
-                    <li><strong>Estrutura:</strong> Manutenção do nosso espaço físico para garantir um ambiente seguro e acolhedor.</li>
-                    <li><strong>Ações Sociais:</strong> Eventos comunitários, roupas, brinquedos e suporte emergencial de saúde.</li>
-                </ul>
+            <div class="grid-galeria">
+                <!-- Adicionado efeito fade-up nas imagens da galeria em cascata -->
+                <img src="img/galeria/criança1.png" alt="Crianças da ONG em atividade" tabindex="0" loading="lazy"
+                    data-aos="fade-up" data-aos-delay="100">
+                <img src="img/galeria/criança2.png" alt="Projeto Resgate de Vidas" tabindex="0" loading="lazy"
+                    data-aos="fade-up" data-aos-delay="200">
+                <img src="img/galeria/criança3.png" alt="Atendimento na ONG" tabindex="0" loading="lazy"
+                    data-aos="fade-up" data-aos-delay="300">
+                <img src="img/galeria/criança4.png" alt="Ação social Itapetininga" tabindex="0" loading="lazy"
+                    data-aos="fade-up" data-aos-delay="400">
+                <img src="img/galeria/criança5.png" alt="Criança feliz projeto" tabindex="0" loading="lazy"
+                    data-aos="fade-up" data-aos-delay="500">
+                <img src="img/galeria/criança6.png" alt="Momentos da ONG" tabindex="0" loading="lazy" data-aos="fade-up"
+                    data-aos-delay="600">
+                <img src="img/galeria/criança7.png" alt="Atividades pedagógicas" tabindex="0" loading="lazy"
+                    data-aos="fade-up" data-aos-delay="700">
+                <img src="img/galeria/criança8.png" alt="Alimentação e cuidado" tabindex="0" loading="lazy"
+                    data-aos="fade-up" data-aos-delay="800">
+                <img src="img/galeria/criança9.png" alt="União e esperança" tabindex="0" loading="lazy"
+                    data-aos="fade-up" data-aos-delay="900">
             </div>
 
-            <div class="cta-doacao" data-aos="zoom-in" data-aos-delay="500">
-                <a href="doacao.html" class="btn-doar-destaque">Quero Transformar Vidas</a>
-            </div>
-        </div>
-    </section>
+        </section>
 
-</main>
+        <section class="como-apoiar" id="apoiar">
+            <div class="apoiar-container" data-aos="zoom-in" data-aos-duration="1000">
+                <h2 tabindex="0">COMO APOIAR</h2>
+                <p class="apoiar-intro" tabindex="0">
+                    A sua contribuição é o que mantém o nosso projeto vivo. Com o seu apoio, podemos continuar
+                    resgatando vidas e construindo um futuro melhor para centenas de crianças e famílias.
+                </p>
+
+                <div class="transparencia-box" tabindex="0" data-aos="fade-up" data-aos-delay="300">
+                    <h3>Transparência: Para onde vai a sua doação?</h3>
+                    <p>Levamos a sério cada centavo doado. Seu investimento social é revertido diretamente para a
+                        manutenção e expansão das nossas atividades diárias:</p>
+                    <ul class="transparencia-lista">
+                        <li><strong>Alimentação:</strong> Compra de mantimentos para refeições diárias e montagem de
+                            cestas básicas para as famílias.</li>
+                        <li><strong>Educação e Cultura:</strong> Materiais didáticos, livros, instrumentos e recursos
+                            para as aulas.</li>
+                        <li><strong>Estrutura:</strong> Manutenção do nosso espaço físico para garantir um ambiente
+                            seguro e acolhedor.</li>
+                        <li><strong>Ações Sociais:</strong> Eventos comunitários, roupas, brinquedos e suporte
+                            emergencial de saúde.</li>
+                    </ul>
+                </div>
+
+                <div class="cta-doacao" data-aos="zoom-in" data-aos-delay="500">
+                    <a href="doacao.html" class="btn-doar-destaque">Quero Transformar Vidas</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
 
     <!--Seção do contato-->
     <footer class="main-footer" id="contato">
@@ -309,8 +336,22 @@
             offset: 100 // Ajuste para iniciar a animação mais cedo ou mais tarde ao rolar
         });
     </script>
-    
+
     <script src="script/js/scripts.js"></script>
+
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+
+    <script src="https://cdn.userway.org/widget.js" data-account="Y5OvFyECWY" data-position="5"></script>
+    
 
 </body>
 

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="script/css/base.css">
+    <link rel="stylesheet" href="script/css/header.css">
+    <link rel="stylesheet" href="script/css/footer.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sorts+Mill+Goudy:ital@0;1&display=swap" rel="stylesheet">
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <title>Faça sua Doação - Resgate de Vidas</title>
+
+    <style>
+        .doacao-main {
+            padding: 150px 20px 80px 20px; /* Espaço para o header fixo */
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .doacao-header h2 {
+            font-family: 'Sorts Mill Goudy', serif;
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        .doacao-header p {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.1rem;
+            color: #555;
+            max-width: 800px;
+            margin: 0 auto 50px auto;
+        }
+        .grid-pagamentos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+        .card-pagamento {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            padding: 40px 30px;
+            width: 100%;
+            max-width: 450px;
+            text-align: center;
+            border-top: 5px solid #FFD700; /* Detalhe amarelo combinando com a barra do footer */
+        }
+        .card-pagamento h3 {
+            font-family: 'Poppins', sans-serif;
+            color: #222;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        .qr-code-box {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border: 1px dashed #ccc;
+        }
+        .qr-code-box img {
+            max-width: 200px;
+            height: auto;
+        }
+        .chave-pix {
+            font-family: monospace;
+            background: #eee;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            word-break: break-all;
+            margin-bottom: 15px;
+        }
+        .btn-copiar {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        .btn-copiar:hover {
+            background: #218838;
+        }
+        .dados-bancarios {
+            text-align: left;
+            font-family: 'Poppins', sans-serif;
+            color: #444;
+            line-height: 1.6;
+        }
+        .dados-bancarios strong {
+            color: #222;
+        }
+        .divisor {
+            margin: 20px 0;
+            border: 0;
+            border-top: 1px solid #eee;
+        }
+    </style>
+</head>
+
+<body>
+
+    <a href="#conteudo-principal" class="skip-link">Pular para o conteúdo</a>
+
+    <header class="main-header">
+        <div class="logo">
+            <img src="img/logo.png" alt="Logo ONG Resgate de Vidas">
+            <div class="logo-text">
+                <h1><span class="titulo">Resgate de vidas</span></h1>
+                <span class="subtitulo">criança feliz</span>
+            </div>
+        </div>
+
+        <button class="hamburger" aria-label="Abrir menu" aria-expanded="false">
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+        </button>
+
+        <nav id="secoes" class="nav-menu">
+            <ul class="nav-links">
+                <li><a href="index.html#sobre-nos">Sobre nós</a></li>
+                <li><a href="index.html#atividades">Atividades</a></li>
+                <li><a href="index.html#nossa-historia">História</a></li>
+                <li><a href="index.html#galeria">Galeria</a></li>
+                <li><a href="index.html#apoiar">Como apoiar</a></li>
+                <li><a href="#contato">Contato</a></li>
+                <li class="item-doar"><a href="doacao.html" class="btn-doar">Faça sua doação</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="conteudo-principal" tabindex="-1" style="outline: none;">
+        <section class="doacao-main">
+            <div class="doacao-header" data-aos="fade-up">
+                <h2 tabindex="0">Transforme Vidas Hoje</h2>
+                <p tabindex="0">A sua contribuição é o que mantém o nosso projeto vivo. Escolha a melhor forma de fazer a sua doação e nos ajude a construir um futuro melhor para centenas de crianças.</p>
+            </div>
+
+            <div class="grid-pagamentos">
+                
+                <div class="card-pagamento" data-aos="zoom-in" data-aos-delay="200" tabindex="0">
+                    <h3>Doação via PIX</h3>
+                    <p>Rápido, seguro e cai na hora.</p>
+                    
+                    <div class="qr-code-box">
+                        <img src="img/qrcode-pix.png" alt="QR Code para doação via PIX">
+                    </div>
+                    
+                    <p>Ou utilize nossa chave:</p>
+                    <div class="chave-pix" id="chavePixTexto">resgatedevidasbr@gmail.com</div>
+                    
+                    <button class="btn-copiar" onclick="copiarPix()">Copiar Chave PIX</button>
+                </div>
+
+                <div class="card-pagamento" data-aos="zoom-in" data-aos-delay="400" tabindex="0">
+                    <h3>Outras Formas de Doar</h3>
+                    
+                    <div class="dados-bancarios">
+                        <h4>Transferência Bancária</h4>
+                        <p>
+                            <strong>Banco:</strong> (Nome do Banco) - 000<br>
+                            <strong>Agência:</strong> 0000<br>
+                            <strong>Conta Corrente:</strong> 00000-0<br>
+                            <strong>CNPJ:</strong> 00.000.000/0000-00<br>
+                            <strong>Favorecido:</strong> Projeto Resgate de Vidas
+                        </p>
+                        
+                        <hr class="divisor">
+                        
+                        <h4>Doações Internacionais (EUA)</h4>
+                        <p>
+                            <strong>Bright Future Foundation</strong><br>
+                            <strong>Zelle:</strong> 415 2997545
+                        </p>
+
+                        <hr class="divisor">
+
+                        <h4>Doação de Alimentos/Roupas</h4>
+                        <p>Entregue diretamente em nossa sede física em Itapetininga-SP. (Endereço no rodapé).</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer" id="contato">
+        <div class="footer-container" data-aos="fade-up">
+            <div class="footer-info">
+                <h2 tabindex="0" class="footer-title">FALE COM A GENTE!</h2>
+                <p class="footer-desc">Juntos levaremos oportunidades para milhares de vidas de crianças e suas famílias.</p>
+                <div class="yellow-bar"></div>
+
+                <div class="contact-details">
+                    <h3>LOCALIZADOS EM:</h3>
+                    <p>Rua Claudionor Belarminio Ferreira, 330 - Vila Mazzei - Itapetininga, SP - CEP: 18209510</p>
+
+                    <div class="contact-group">
+                        <p>Estados Unidos us<br>
+                            Bright Future Foundation<br>
+                            Zelle 415 2997545</p>
+
+                        <p>Whatsapp: (15) 988153462<br>
+                            resgatedevidasbr@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-form" data-aos="fade-left" data-aos-delay="200">
+                <form action="#">
+                    <input type="text" placeholder="Nome completo" class="full-width">
+                    <div class="form-row">
+                        <input type="text" placeholder="Empresa">
+                        <input type="text" placeholder="Telefone">
+                    </div>
+                    <input type="email" placeholder="E-mail" class="full-width">
+                    <input type="text" placeholder="Assunto" class="full-width">
+                    <textarea placeholder="Escreva aqui a sua mensagem"></textarea>
+                    <button type="submit" class="btn-submit">Enviar mensagem</button>
+                </form>
+            </div>
+
+            <div class="footer-map" data-aos="zoom-in" data-aos-delay="400">
+                <iframe title="Mapa de localização da sede em Itapetininga" width="100%" height="100%"
+                    style="border:0; min-height: 350px; border-radius: 8px;" loading="lazy" allowfullscreen
+                    referrerpolicy="no-referrer-when-downgrade"
+                    src="https://maps.google.com/maps?q=Rua+Claudionor+Belarminio+Ferreira,+330+-+Vila+Mazzei+-+Itapetininga,+SP&t=&z=15&ie=UTF8&iwloc=&output=embed">
+                </iframe>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-bottom-content">
+                <div class="footer-logo">
+                    <img src="img/logo.png" alt="Logo">
+                    <div class="logo-text-footer">
+                        <span class="logo-title">RESGATE DE VIDAS</span>
+                        <span class="logo-sub">CRIANÇA FELIZ</span>
+                    </div>
+                </div>
+
+                <div class="footer-credits">
+                    <p>Resgate de Vidas © 2026 - Todos os direitos reservados.</p>
+                    <p>Feito por GALMe</p>
+                </div>
+
+                <div class="footer-socials">
+                    <a href="https://www.instagram.com/resgatedevidascriancafeliz/" target="_blank"
+                        rel="noopener noreferrer">
+                        <img src="img/icon-instagram.png" alt="Instagram">
+                    </a>
+                    <a href="https://www.facebook.com/resgatedevidascriancafeliz/" target="_blank"
+                        rel="noopener noreferrer">
+                        <img src="img/icon-facebook.png" alt="Facebook">
+                    </a>
+                    <a href="https://wa.me/5515988153462" target="_blank" rel="noopener noreferrer">
+                        <img src="img/icon-whatsapp.png" alt="WhatsApp">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ once: true, offset: 100 });
+        
+        // Script simples para copiar a chave PIX
+        function copiarPix() {
+            var textoCopia = document.getElementById("chavePixTexto").innerText;
+            navigator.clipboard.writeText(textoCopia).then(function() {
+                alert("Chave PIX copiada com sucesso!");
+            }, function(err) {
+                alert("Erro ao copiar. Tente selecionar o texto manualmente.");
+            });
+        }
+    </script>
+    <script src="script/js/scripts.js"></script>
+
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+
+    <script src="https://cdn.userway.org/widget.js" data-account="Y5OvFyECWY" data-position="5"></script>
+
+</body>
+</html>
